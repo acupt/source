@@ -10,6 +10,6 @@ hexoez:
   link: https://github.com/acupt/hexoez
   avatar: /images/work/hexoez.svg
   descr: hexo markdown batch edit
-  qq: "##"
-  wachat: "##"
+  # qq: "##"
+  # wachat: "##"
   # weibo: "##"

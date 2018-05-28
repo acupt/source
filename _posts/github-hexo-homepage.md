@@ -4,7 +4,7 @@ date: 2018-05-20 15:41:09
 tags:
  - github
  - hexo
-categories: devtool
+categories: practice
 thumbnail: /images/acupt-home-20180520.png
 ---
 
@@ -60,6 +60,21 @@ hexo s # 启动服务，同 hexo server
 ```
 
 启动成功后在浏览器访问 http://localhost:4000
+
+### 写文章
+
+主目录下执行命令可新建一个md文件，也可以自己新建到source/_posts目录下
+
+```
+hexo new "文件名" #新建文章
+hexo new page "页面名" #新建页面   
+
+# 常用简写
+hexo n == hexo new
+hexo g == hexo generate
+hexo s == hexo server
+hexo d == hexo deploy
+```
 
 ### 修改主题
 
@@ -134,3 +149,85 @@ hexo d
 访问自己的github个人页面（如 https://acupt.github.io/ )，查看效果。
 
 感谢miccall@github提供的酷炫模板，https://github.com/miccall/hexo-theme-Mic_Theme 
+
+## 技术性改进
+
+虽然这个主题很酷炫，但不可能每一点都如我所愿，如果主题作者未提供可配置选项，就需要对模板源代码做些改动。
+
+先去主题项目的github主页fork一份到自己的github，再clone到本地。
+
+### links布局配置可选
+
+此主题的团队页面布局我很喜欢，但我并没有小伙伴想贴上去，那就做成作品展示页面好了。但是这个布局设计之初是为了展示人，所以有QQ、微信等信息配置，但我只想要一个‘链接’属性，其它的显示出来有点碍事。
+
+IDE打开本地代码，全局搜索，就用属性名做关键词，果断在一个page-links.ejs文件中发现。
+
+```
+<ul class="social">
+    <li><a href="<%= site.data.links[i].link%>" class="fa fa-link"></a></li>
+    <li><a href="<%= site.data.links[i].qq%>" class="fa fa-qq"></a></li>
+    <li><a href="<%= site.data.links[i].wachat%>" class="fa fa-wechat"></a></li>
+    <li><a href="<%= site.data.links[i].weibo%>" class="fa fa-weibo"></a></li>
+</ul>
+```
+
+网上查一下语法，加个if判断。
+
+```
+<ul class="social">
+    <% if (site.data.links[i].link != null) { %>
+    <li><a href="<%= site.data.links[i].link%>" class="fa fa-link"></a></li>
+    <%}%>
+    <% if (site.data.links[i].qq != null) { %>
+    <li><a href="<%= site.data.links[i].qq%>" class="fa fa-qq"></a></li>
+    <%}%>
+    <% if (site.data.links[i].wachat != null) { %>
+    <li><a href="<%= site.data.links[i].wachat%>" class="fa fa-wechat"></a></li>
+    <%}%>
+    <% if (site.data.links[i].weibo != null) { %>
+    <li><a href="<%= site.data.links[i].weibo%>" class="fa fa-weibo"></a></li>
+    <%}%>
+</ul>
+```
+
+妥了
+
+![1](https://user-images.githubusercontent.com/10628338/40361024-879fcbf2-5dfa-11e8-922e-f2a26b4c3441.png)
+
+![1](https://user-images.githubusercontent.com/10628338/40361011-7dbd6eb4-5dfa-11e8-945b-66b7676f2b57.png)
+
+![1](https://user-images.githubusercontent.com/10628338/40361045-94a62dd2-5dfa-11e8-863a-dbf3a07b8bb0.png)
+
+### https站内访问http资源受限
+
+部署到github后第二天发现我酷炫的作品展示页面不再酷炫了，样式有点诡异，打开调试界面
+
+![1](https://user-images.githubusercontent.com/10628338/40316361-b0dd89be-5d50-11e8-83e6-5511420efcb3.png)
+
+显然最上面那两个异常是问题所在（下面那个异常没影响，有空再研究）
+
+https协议的网站如果用http访问外部资源，往往会收到这种限制，这种情况最好统一一下，大家用同样的协议即可，显然我不能改github的协议，那只能改主题代码了
+
+还是一波全局搜索，还是那个文件
+
+```
+<link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+```
+
+改成https，搞定！
+
+当然不，我是专业的（java程序猿），这样改到了http网站不又用https请求外部资源了，哪怕不报错，那也是不优雅的，要改就改漂亮点。
+
+```
+<link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+```
+
+这就很舒服了，用当前协议请求外部资源。
+
+发布，验证，搞定，顺便给作者提个pull request，不能白用人家东西。
+
+PS：其实开始提的issue，作者建议我提个pull request，不然直接本地注释掉多余的代码，加个s，搞定:)
+
+惭愧惭愧

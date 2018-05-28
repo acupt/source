@@ -4,7 +4,7 @@ date: 2018/5/20 15:00:00
 tags:
  - github
  - maven
-categories: devtool
+categories: practice
 thumbnail: /images/github-blackboard.jpg
 ---
 
