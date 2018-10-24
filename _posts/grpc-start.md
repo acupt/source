@@ -60,7 +60,7 @@ pom.xml
 
 新建文件 src/main/resources/test.proto
 
-![](../img/micro-service/test.proto.png)
+![](/img/micro-service/test.proto.png)
 
 ```java
 syntax = "proto3";
@@ -93,13 +93,13 @@ message InvokeResponse {
 
 构建完成后可以在target中找到生成的Java代码，用这些代码可以实现gRPC远程调用。
 
-![](../img/micro-service/test.proto.target.png)
+![](/img/micro-service/test.proto.target.png)
 
 但在项目中还无法直接引用上面的类，右键 -> Mark Directory as -> Generated Sources Root
 
-![](../img/micro-service/generated-sources-root.png)
+![](/img/micro-service/generated-sources-root.png)
 
-![](../img/micro-service/test.proto.target-2.png)
+![](/img/micro-service/test.proto.target-2.png)
 
 现在就可以在项目中引用了
 
@@ -188,6 +188,6 @@ public class MyClient {
 
 先启动MyServer，成功启动后再启动MyClient
 
-![](../img/micro-service/myserver.png)
+![](/img/micro-service/myserver.png)
 
-![](../img/micro-service/myclient.png)
+![](/img/micro-service/myclient.png)
