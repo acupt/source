@@ -215,19 +215,14 @@ https协议的网站如果用http访问外部资源，往往会收到这种限�
 <link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 ```
 
-改成https，搞定！
+改成https，搞定
 
-当然不，我是专业的（java程序猿），这样改到了http网站不又用https请求外部资源了，哪怕不报错，那也是不优雅的，要改就改漂亮点。
+再优雅点
 
 ```
 <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 ```
 
-这就很舒服了，用当前协议请求外部资源。
+发布，验证，搞定，顺便提个pull request
 
-发布，验证，搞定，顺便给作者提个pull request，不能白用人家东西。
-
-PS：其实开始提的issue，作者建议我提个pull request，不然直接本地注释掉多余的代码，加个s，搞定:)
-
-惭愧惭愧
