@@ -2,6 +2,10 @@
 title: gRPC-Java 示例
 date: 2018-10-23 20:19:56
 tags:
+ - rpc
+ - grpc
+categories: 微服务
+thumbnail: /img/micro-service/grpc.png
 ---
 <!-- ## gRPC-Java 示例 -->
 
