@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>acupt</title>
+</head>
+<script src='static/js/jquery.1.7.1.min.js'></script>
+
+<body>
+    背景：<input class="input_back" type="file" /><br>
+    头像：<input class="input_head" type="file" /><br>
+    照片：<input class="input_publish" type="file" /><br>
+    文字：<input class="input_txt_publish" type="text" /><br>
+    昵称：<input class="input_txt_name" type="text" /><br>
+    账号：<input class="input_txt_account" type="text" /><br>
+    <button class="btn_change_txt">替换文字</button>
+    <div style="height:10px"></div>
+    <div style="width:330px;">
+        <div>
+            <img class="img_back" src="static/img/back0.jpg" width="100%" height="250" />
+        </div>
+        <div style="margin-top: -240px;padding-left: 10px">
+            <img src="static/img/left.png" width="10" height="15" />
+        </div>
+        <div style="margin-top: -20px;padding-left: 300px">
+            <img src="static/img/chat.png" width="20" height="20" />
+        </div>
+        <div style="padding-left:245px;margin-top: 165px;">
+            <img style="border:1px solid lightgrey" class="img_head" src="static/img/head.jpg" width="80px" height="80px" />
+        </div>
+        <div style="padding-left:195px;margin-top: -75px;">
+            <div style="font-size: 20px;color: white" id="txt_name">靓仔</div>
+        </div>
+        <div style="float: right;margin-top: 45px;padding-right: 5px">
+            <div style="font-size: 13px;color: grey" id="txt_account">acupt</div>
+        </div>
+        <div style="padding-left:10px;padding-top: 80px">
+            <div style="font-size: 33px;font-weight: 800;color: black" class="txt_name">2018年</div>
+        </div>
+        <div style="padding-left:10px;padding-top: 5px">
+            <div style="font-size: 33px;font-weight: 800;color: black" class="txt_name">今天</div>
+        </div>
+        <div style="padding-left:90px;margin-top: -40px;">
+            <img src="static/img/photo.png" width="80px" height="80px" />
+        </div>
+        <div style="padding-left:90px;margin-top: 1px;">
+            <img style="float: left;" src="static/img/publish.jpg" class="img_publish" width="80px" height="80px" />
+            <div style="float: left;font-size: 15px;color: black;padding-left: 5px" id="txt_publish">寂寞如雪</div>
+        </div>
+
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    $('.btn_change_txt').click(function (e) {
+        document.getElementById("txt_publish").innerHTML = $('.input_txt_publish').val();
+        document.getElementById("txt_name").innerHTML = $('.input_txt_name').val();
+        document.getElementById("txt_account").innerHTML = $('.input_txt_account').val();
+    })
+
+
+    $('.input_back').change(function (e) {
+        var _URL = window.URL || window.webkitURL;
+        var file, img;
+        if ((file = this.files[0])) {
+            img = new Image();
+            img.onload = function () {
+                $('.img_back').attr('src', this.src);
+                console.log(this.width)
+            };
+            img.src = _URL.createObjectURL(file);
+        }
+    })
+    $('.input_head').change(function (e) {
+        var _URL = window.URL || window.webkitURL;
+        var file, img;
+        if ((file = this.files[0])) {
+            img = new Image();
+            img.onload = function () {
+                $('.img_head').attr('src', this.src);
+                console.log(this.width)
+            };
+            img.src = _URL.createObjectURL(file);
+        }
+    })
+    $('.input_publish').change(function (e) {
+        var _URL = window.URL || window.webkitURL;
+        var file, img;
+        if ((file = this.files[0])) {
+            img = new Image();
+            img.onload = function () {
+                $('.img_publish').attr('src', this.src);
+                console.log(this.width)
+            };
+            img.src = _URL.createObjectURL(file);
+        }
+    })
+</script>
