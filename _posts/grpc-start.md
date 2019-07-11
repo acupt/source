@@ -191,3 +191,70 @@ public class MyClient {
 ![](/img/micro-service/myserver.png)
 
 ![](/img/micro-service/myclient.png)
+
+### 请求方式
+
+#### 1.阻塞
+
+同步请求，接口返回前是阻塞的。
+
+```java
+        HelloServiceGrpc.HelloServiceBlockingStub blockingStub = HelloServiceGrpc.newBlockingStub(channel);
+        InvokeResponse response = blockingStub.hello(request);
+        System.out.println(response.getMsg());
+```
+
+#### 2.Future
+
+调用后返回guava包里继承了Future<T>的接口ListenableFuture<T>（增加了listener支持），可以控制超时时间。
+
+```java
+        HelloServiceGrpc.HelloServiceFutureStub futureStub = HelloServiceGrpc.newFutureStub(channel);
+        ListenableFuture<InvokeResponse> future = futureStub.hello(request);
+        future.addListener(
+                () -> System.out.println("listener 1"),
+                command -> {
+                    System.out.println("execute 1 " + command);
+                    command.run();
+                });
+        future.addListener(
+                () -> System.out.println("listener 2"),
+                command -> {
+                    System.out.println("execute 2 " + command);
+                    command.run();
+                });
+
+        System.out.println(future.get(10, TimeUnit.SECONDS));
+
+```
+
+#### 3.回调
+
+调用接口传入回调函数，调用后马上返回。
+
+```java
+        MyClient.done = false;
+        HelloServiceGrpc.HelloServiceStub stub = HelloServiceGrpc.newStub(channel);
+        stub.hello(request, new StreamObserver<InvokeResponse>() {
+            @Override
+            public void onNext(InvokeResponse value) {
+                System.out.println("onNext " + value);
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                System.out.println("onError " + t.getMessage());
+                t.printStackTrace();
+                MyClient.done = true;
+            }
+
+            @Override
+            public void onCompleted() {
+                System.out.println("onCompleted");
+                MyClient.done = true;
+            }
+        });
+        while (!MyClient.done) {
+            Thread.sleep(1000);
+        }
+```
