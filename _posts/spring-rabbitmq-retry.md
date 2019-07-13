@@ -4,7 +4,7 @@ date: 2018-11-15 11:00:00
 tags:
  - spring
  - rabbitmq
-categories: spring
+categories: 随笔
 thumbnail: /img/code.jpg
 ---
 
