@@ -8,6 +8,10 @@ categories: 教程
 thumbnail: /images/github-blackboard.jpg
 ---
 
+> Maven对Java开发者来说是很常见的工具，有了它只需要在pom文件加几行代码就能引入第三方代码。如果想我们自己写的工具类也让别人通过这种方式使用，不妨借助github搭建个免费仓库。
+
+核心原理就是在github上建立一个代码仓库来存储我们发布的jar包，不需要自己买服务器，买域名，这些github都能帮我们实现。
+
 ## 新建仓库
 
 + 在github新建一个普通的仓库即可，我的仓库地址 https://github.com/acupt/repository.git
@@ -26,16 +30,15 @@ Unpacking objects: 100% (3/3), done.
 ➜  repository git:(master) ls
 README.md
 ➜  repository git:(master) pwd
-/Users/yunpian/github/repository
+/Users/acupt/github/repository
 ```
-
 
 ## 发布到本地
 
-+ 用deploy命令发布项目，指定打包的文件输出到上一步克隆的本地仓库，在项目根目录下执行以下指令
++ 用deploy命令发布项目，指定打包的文件输出到上一步克隆的本地仓库，在项目（我们需要发布到仓库的代码/jar包）根目录下执行以下指令
 
 ```
-mvn deploy -DaltDeploymentRepository=acupt-repository::default::file:/Users/yunpian/github/repository/
+mvn deploy -DaltDeploymentRepository=acupt-repository::default::file:/Users/acupt/github/repository/
 ```
 
 ## 同步到远程仓库
@@ -83,9 +86,11 @@ To https://github.com/acupt/repository.git
 
 ## 测试
 
-到这里已经ok了，通过GitHub提供的域名可以下载maven依赖，但无法查看列表，地址：
+到这里已经ok了，通过GitHub提供的域名可以下载maven依赖（但无法查看列表），地址：
 
 https://raw.github.com/acupt/repository/snapshot
+
+接下来新建一个项目试着引用前面发布的jar包，需要在pom文件中增加远程仓库地址，当然也可以在maven配置文件中做全局配置。
 
 + 新建maven项目
 + 修改pom.xml
@@ -130,7 +135,9 @@ acupsession-1.0-20180519.110225-1.pom.sha1         maven-metadata-acupt-reposito
 acupsession-1.0-20180519.110225-1.pom.tmp.sha1.tmp maven-metadata-snapshots.xml
 ```
 
-运气不错，成功了。
+可以看到已经有jar包了，至此一个属于你自己的maven仓库就完成了。
+
+如果想让别人不需要添加你的仓库地址就能用你的jar包，那么就不能用自己搭建的私人仓库了，需要发布到大家公用的仓库里去，有专门的提供这种服务的公司，网上一搜就有，但不是免费的，告辞。
 
 
 
