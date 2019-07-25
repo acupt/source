@@ -4,7 +4,7 @@ date: 2018/5/20 15:00:00
 tags:
  - github
  - maven
-categories: 教程
+categories: 实践笔记
 thumbnail: /images/github-blackboard.jpg
 ---
 

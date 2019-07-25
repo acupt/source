@@ -4,7 +4,7 @@ date: 2018-05-20 15:41:09
 tags:
  - github
  - hexo
-categories: 教程
+categories: 实践笔记
 thumbnail: /images/acupt-home-20180520.png
 ---
 
