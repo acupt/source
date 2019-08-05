@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>芝麻关门</title>
+</head>
+<!--芝麻开门SDK-->
+<script src="captcha-sdk.js"></script>
+<body>
+<div>
+    <table>
+        <tr>
+            <td>用户名</td>
+            <td><input placeholder="请输入用户名"></td>
+        </tr>
+        <tr>
+            <td>密码</td>
+            <td><input type="password" placeholder="请输入密码"></td>
+        </tr>
+        <tr>
+            <td>验证码</td>
+            <td>
+                <div style="width: 600px;">
+                    <div id="check-code">
+
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>
+<script>
+    window.onload = function () {
+        configDoor({
+            elementId: "check-code",
+            mode: "1",
+            width: "100%",
+            onSuccess: function (v) {
+                alert("验证成功");
+                console.log("验证成功: " + v);
+            },
+            onFail: function () {
+                alert("验证失败");
+                console.log("验证失败");
+            },
+            onError: function (err) {
+                alert("系统异常: " + err);
+                console.log("系统异常: " + err);
+            }
+        });
+
+    }
+</script>
