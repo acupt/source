@@ -3,6 +3,7 @@ title: spring cloud 自定义配置源及配置刷新
 date: 2018-10-29 15:19:56
 tags:
  - config
+ - spring
 categories: 微服务
 thumbnail: /img/micro-service/sc.jpg
 ---
