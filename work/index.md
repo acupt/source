@@ -12,6 +12,12 @@ title: 关于
 
 + 关注后回复“加群”，加入技术交流微信群，与我们一起探索问题，交流技术，分享知识
 
-+ PS：请勿发布和传播不和谐、技术无关的内容
++ PS：也可以直接加我微信邀请入群（acuptz），广告营销勿扰
 
-![wx](/img/qrcode_wx_logo_12cm.jpg)
+![wx](/img/acupjava.jpg)
+
+<div align = "center"> 
+
+![wx](/img/wx_acuptz.png)
+- 个人微信 -
+</div>
