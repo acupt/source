@@ -193,8 +193,12 @@ public class Bit {
 
 ## <<< 无符号左移
 
-<div align='center'> ![还有这种操作](/img/emoji/还有这种操作.jpeg)
-<div align='center'> ![没有这种操作](/img/emoji/没有这种操作.jpg)
+<div align="center">
+
+ ![还有这种操作](/img/emoji/还有这种操作.jpeg)
+ ![没有这种操作](/img/emoji/没有这种操作.jpg)
+
+</div>
 
 ## 位数限制
 
