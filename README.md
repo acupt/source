@@ -49,4 +49,3 @@
 + [6:调用异常节点自动重试](_posts/acuprpc-6.md)
 + [7:网关支持(gateway)](_posts/acuprpc-7.md)
 
-[acupt.cn](https://acupt.cn)
