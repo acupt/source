@@ -196,6 +196,7 @@ public class Bit {
 <div align="center">
 
  ![还有这种操作](/img/emoji/还有这种操作.jpeg)
+ 
  ![没有这种操作](/img/emoji/没有这种操作.jpg)
 
 </div>
