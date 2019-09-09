@@ -10,7 +10,7 @@ thumbnail: /img/code.jpg
 
 ## springboot集成rabbitMQ
 
-### 发消息
+### 发消息
 
 ```java
     @Resource
