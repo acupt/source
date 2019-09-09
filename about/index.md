@@ -19,5 +19,5 @@ title: 关于
 <div align = "center"> 
 
 ![wx](/img/wx_acuptz.png)
-- 个人微信 -
+
 </div>
