@@ -1,5 +1,7 @@
 # 一杯82年的JAVA
 
+<a href="https://info.flagcounter.com/QDs1"><img src="https://s05.flagcounter.com/count/QDs1/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_3/labels_0/pageviews_1/flags_0/percent_1/" alt="Flag Counter" border="0"></a>
+
 > 大家好，我是练习时常两年半的JAVA练习生，爱好是
 > 
 > Coding、Technology、Reading、Learning
