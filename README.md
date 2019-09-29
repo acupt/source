@@ -10,6 +10,7 @@
 
 ## 随笔
 
++ [分布式场景下的定时任务实践](_posts/distributed-schedule.md)
 + [从TCP的三次握手和四次挥手说起](_posts/tcp-3-4.md)
 + [JAVA中有趣的移位操作](_posts/acuprpc-java-bit-move.md)
 + [JAVA中有趣的位运算](_posts/acuprpc-java-bit.md)
