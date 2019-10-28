@@ -85,7 +85,7 @@ com.xxx.SyncJobConfig
 
 有两个重要的bean需要在SyncJobConfig中创建：
 
-1. 自定义bean扫描类，实现BeanPostProcessor接口，spring每创建一个bean都会调用里，可以扫描含@SyncJob方法的bean，放入“集合”备用，也可以在这里注册作业信息到schedule-service（或者启动后注册）
+1. 自定义bean扫描类，实现BeanPostProcessor接口，spring每创建一个bean都会调用它的方法，可以用来扫描含@SyncJob方法的bean，放入“集合”备用，也可以在这里注册作业信息到schedule-service（或者启动后注册）
 2. 定时任务执行类，负责执行核心流程：轮询，加锁，执行，解锁...
 
 ## 防坑指南
